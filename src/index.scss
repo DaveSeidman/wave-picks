@@ -1,5 +1,16 @@
 html, body, #root {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
+}
 
+.App {
+ * {
+  font-family: Arial, Helvetica, sans-serif;
+ }
+}
+
+
+.spectrogram {
+  height: 200px;
+  outline: 1px solid red;
 }
