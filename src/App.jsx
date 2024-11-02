@@ -81,19 +81,23 @@ function App() {
       ) : (
         <div className="song-lists">
           <div className="song-lists-list liked">
-            <h1>Liked Songs</h1>
+            <h1>Liked</h1>
             <ul>
-              {likedSongs.map((track) => (
-                <li key={track.id}>
+              {likedSongs.map((track, index) => (
+                <li key={`${track.id}-${index}`}>
+
                   <strong>{track.name}</strong>
                   {' '}
                   by
                   {track.artists[0].name}
-                  {/* {track.preview_url ? (
-                  <SpectrogramComponent audioUrl={track.preview_url} />
-                ) : (
-                  <p>No preview available</p>
-                )} */}
+                  {track.preview_url ? (
+                    <SpectrogramComponent
+                      audioUrl={track.preview_url}
+                      trackName={track.name}
+                      label="liked"
+                    />) : (
+                    <p>No preview available</p>
+                  )}
                 </li>
               ))}
             </ul>
@@ -101,19 +105,23 @@ function App() {
 
           <div className="song-lists-list disliked">
 
-            <h1>Disliked Songs</h1>
+            <h1>Disliked</h1>
             <ul>
-              {dislikedSongs.map((track) => (
-                <li key={track.id}>
+              {dislikedSongs.map((track, index) => (
+                <li key={`${track.id}-${index}`}>
                   <strong>{track.name}</strong>
                   {' '}
                   by
                   {track.artists[0].name}
-                  {/* {track.preview_url ? (
-                  <SpectrogramComponent audioUrl={track.preview_url} />
-                ) : (
-                  <p>No preview available</p>
-                )} */}
+                  {track.preview_url ? (
+                    <SpectrogramComponent
+                      audioUrl={track.preview_url}
+                      trackName={track.name}
+                      label="dislike"
+                    />
+                  ) : (
+                    <p>No preview available</p>
+                  )}
                 </li>
               ))}
             </ul>
