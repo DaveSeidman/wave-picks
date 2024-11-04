@@ -93,7 +93,7 @@ function App() {
                   {track.preview_url ? (
                     <SpectrogramComponent
                       audioUrl={track.preview_url}
-                      trackName={track.name}
+                      trackName={track.name.replace(/[\/\\]/g, '_')} // Replace slashes for file safety
                       label="liked"
                     />) : (
                     <p>No preview available</p>
@@ -116,7 +116,7 @@ function App() {
                   {track.preview_url ? (
                     <SpectrogramComponent
                       audioUrl={track.preview_url}
-                      trackName={track.name}
+                      trackName={track.name.replace(/[\/\\]/g, '_')} // Replace slashes for file safety
                       label="dislike"
                     />
                   ) : (
